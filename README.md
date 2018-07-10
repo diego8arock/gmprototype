@@ -1,0 +1,2 @@
+# gmprototype
+PrototypeForGame
