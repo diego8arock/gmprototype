@@ -13,6 +13,10 @@ config_version=3
 config/name="gmprototype"
 config/icon="res://icon.png"
 
+[autoload]
+
+GlobalConstant="*res://utils/autoload/global_constant.gd"
+
 [layer_names]
 
 2d_physics/layer_1="player_hitbox"
