@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://attributes/health/health.gd" type="Script" id=1]
+
+[node name="Health" type="Node" index="0"]
+
+script = ExtResource( 1 )
+max_health = null
+
+[node name="InvicibilityTimer" type="Timer" parent="." index="0"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[node name="LeakTimer" type="Timer" parent="." index="1"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[node name="WeakerTimer" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+
