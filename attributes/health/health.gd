@@ -6,6 +6,7 @@ extends Node
 
 export(int) var max_health
 
+var status = null
 var health = 0
 var leak_cycles = 0
 var weaker_cycles = 0
