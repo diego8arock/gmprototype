@@ -11,11 +11,19 @@ config_version=3
 [application]
 
 config/name="gmprototype"
+run/main_scene="res://game/Game.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 GlobalConstant="*res://utils/autoload/global_constant.gd"
+
+[display]
+
+window/size/width=180
+window/size/height=320
+window/size/test_width=360
+window/size/test_height=640
 
 [layer_names]
 
