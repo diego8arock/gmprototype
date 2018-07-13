@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://actors/base/BaseActor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://actors/player/player_state_machine.gd" type="Script" id=2]
+[ext_resource path="res://assets/actors/player/player.png" type="Texture" id=3]
+[ext_resource path="res://actors/player/states/attack.gd" type="Script" id=4]
+
+[node name="Player" instance=ExtResource( 1 )]
+
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+clam_offset = 16
+translate_coef = 0.2
+
+[node name="Sprite" parent="." index="0"]
+
+texture = ExtResource( 3 )
+
+[node name="Attack" type="Node" parent="States" index="0"]
+
+script = ExtResource( 4 )
+
+[node name="ChargeShot" type="Node" parent="States" index="1"]
+
+[node name="FastShot" type="Node" parent="States" index="2"]
+
+[node name="Stagger" type="Node" parent="States" index="3"]
+
+[node name="Die" type="Node" parent="States" index="4"]
+
+
+[editable path="HitBox"]
