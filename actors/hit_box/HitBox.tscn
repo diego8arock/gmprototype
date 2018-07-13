@@ -3,7 +3,7 @@
 [ext_resource path="res://actors/hit_box/hit_box.gd" type="Script" id=1]
 [ext_resource path="res://actors/hit_box/hitbox_default.tres" type="Shape2D" id=2]
 
-[node name="HitBox" type="Area2D" index="0"]
+[node name="HitBox" type="Area2D"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
