@@ -24,4 +24,6 @@ shape = ExtResource( 1 )
 
 [node name="States" type="Node" parent="." index="4"]
 
+[node name="Attributes" type="Node" parent="." index="5"]
+
 
