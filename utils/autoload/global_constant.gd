@@ -7,3 +7,6 @@ const LEAK_DAMAGE = 5
 # For player attributes only
 const PLAYER_SPEED_MODIFIER_INIT = 0.2
 const PLAYER_SPEED_MODIFIER_INCREASE = 0.03
+
+const PLAYER_MIN_CHARGE = 0.0
+const PLAYER_MAX_CHARGE = 100.0
