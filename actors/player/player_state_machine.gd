@@ -1,12 +1,12 @@
 extends KinematicBody2D
 
+signal state_changed
+
 export (float) var clam_offset = 16
 export (float) var translate_coef = 0.2 
 export (float) var fire_rate = 0.2
 
-signal state_changed
-signal direction_changed(new_direction)
-signal position_changed(new_position)
+onready var charged_shot_energy = GlobalConstant.PLAYER_MIN_CHARGE
 
 var states_stack = []
 var current_state = null
@@ -16,6 +16,7 @@ onready var states_map = {
 	"fast_shot": $States/FastShot,
 	"charge_shot": $States/ChargeShot,
 	"fire_charged_shot":$States/FireChargedShot,
+	"cooldown_charged_shot":$States/Cooldown,
 	"stagger": $States/Stagger,
 	"attack": $States/Attack,
 	"die": $States/Die,
@@ -37,12 +38,17 @@ func _ready():
 func _process(delta):
 	_move_player(delta)
 	_clamp_player_position(delta)
-	_input_continue()
 
 func _physics_process(delta):
 	current_state.update(delta)
 
 func _input(event):
+	if event.is_action_pressed("fire") and charged_shot_energy == GlobalConstant.PLAYER_MIN_CHARGE:
+		_change_state("charge_shot")
+
+	if event.is_action_released("fire") and current_state == $States/ChargeShot:
+		_change_state("fire_charged_shot")
+
 	current_state.handle_input(event)
 
 func _on_animation_finished(anim_name):
@@ -60,11 +66,18 @@ func set_controlable(value):
 # Private functions
 
 func _change_state(state_name):
-	if state_name in ["charge_shot"] and not current_state == $States/ChargeShot:
-		states_stack.push_front(states_map[state_name])
-		current_state = states_map[state_name]
+	if state_name == "previous":
+		states_stack.pop_front()
+	#elif state_name in ["charge_shot"]:
+	#	states_stack.push_front(states_map[state_name])
+	else:
+		var new_state = states_map[state_name]
+		states_stack[0] = new_state
 		
-	current_state.enter()
+	current_state = states_map[state_name]
+	if state_name != "previous":
+		current_state.enter()
+		
 	emit_signal("state_changed", states_stack)
 
 func _move_player(delta):
@@ -78,15 +91,13 @@ func _clamp_player_position(delta):
 	pos.x = clamp(pos.x, 0 + clam_offset, view_size.x - clam_offset)
 	position = pos
 
-func _input_continue():
-	if Input.is_action_pressed("fire"):
-		_change_state("charge_shot")
-
 func _init_attributes():
 	$Attributes/Speed.init(0, GlobalConstant.PLAYER_SPEED_MODIFIER_INIT)
+	$Attributes/Energy.init(0, GlobalConstant.PLAYER_SPEED_MODIFIER_INIT)
 	
 func _level_up():
 	$Attributes/Speed.increase_level(1)
+	$Attributes/Energy.increase_level(1)
 
 # On Signal functions
 
