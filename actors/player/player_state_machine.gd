@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 signal state_changed
+signal ui_energy_updated(value)
 
 export (float) var clam_offset = 16
 export (float) var translate_coef = 0.2 
@@ -63,6 +64,9 @@ func set_controlable(value):
 	set_process_input(value)
 	set_physics_process(value)
 
+func update_energy_bar():
+	emit_signal("ui_energy_updated", GlobalConstant.PLAYER_MAX_CHARGE - charged_shot_energy)
+
 # Private functions
 
 func _change_state(state_name):
@@ -93,7 +97,7 @@ func _clamp_player_position(delta):
 
 func _init_attributes():
 	$Attributes/Speed.init(0, GlobalConstant.PLAYER_SPEED_MODIFIER_INIT)
-	$Attributes/Energy.init(0, GlobalConstant.PLAYER_SPEED_MODIFIER_INIT)
+	$Attributes/Energy.init(0, GlobalConstant.PLAYER_ENERGY_MODIFIER_INIT)
 	
 func _level_up():
 	$Attributes/Speed.increase_level(1)

@@ -33,4 +33,5 @@ func _recharge():
 	
 	if owner.charged_shot_energy > GlobalConstant.PLAYER_MIN_CHARGE:
 		owner.charged_shot_energy -= energy.modifier
+		owner.update_energy_bar()
 	
