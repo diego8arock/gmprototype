@@ -2,14 +2,14 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/label_bg.png-e1fb30536b6b6a8f34ad2f2bcddac5c0.stex"
+path="res://.import/label_bg.png-9a1d2160d42a559acdc700ae5c87880c.stex"
 
 [deps]
 
-source_file="res://ui/life_bar/label_bg.png"
+source_file="res://ui/bars/label_bg.png"
 source_md5="7eee3747bf3d410a21bf88caa82b4ab4"
 
-dest_files=[ "res://.import/label_bg.png-e1fb30536b6b6a8f34ad2f2bcddac5c0.stex" ]
+dest_files=[ "res://.import/label_bg.png-9a1d2160d42a559acdc700ae5c87880c.stex" ]
 dest_md5="0de92b8c6458f2c82208e574e3235e90"
 
 [params]

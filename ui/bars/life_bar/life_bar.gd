@@ -21,5 +21,3 @@ func animate_value(start, end):
 	if end < start:
 		$AnimationPlayer.play("shake")
 
-func update_count_text(value):
-	$Count/Number.text = str(round(value)) + '/' + str(maximum)
