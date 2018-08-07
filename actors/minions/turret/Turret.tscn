@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://actors/base/BaseActor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://actors/minions/turret/turret_state_machine.gd" type="Script" id=2]
+[ext_resource path="res://assets/actors/minions/turret/base.png" type="Texture" id=3]
+[ext_resource path="res://actors/minions/turret/states/aim.gd" type="Script" id=4]
+[ext_resource path="res://actors/minions/turret/states/attack.gd" type="Script" id=5]
+[ext_resource path="res://weapons/bullet/enemy/EnemyBullet.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/actors/minions/turret/gun.png" type="Texture" id=7]
+
+[node name="Turret" index="0" instance=ExtResource( 1 )]
+
+script = ExtResource( 2 )
+fire_rate = 0.2
+aim_rate = 3.0
+gun_rotation_speed = 1.0
+max_bullets_fire = 3
+
+[node name="Sprite" parent="." index="0"]
+
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="HitBox" parent="." index="3"]
+
+position = Vector2( 0.35849, 0 )
+
+[node name="Aim" type="Node" parent="States" index="0"]
+
+script = ExtResource( 4 )
+
+[node name="Attack" type="Node" parent="States" index="1"]
+
+script = ExtResource( 5 )
+bullet = ExtResource( 6 )
+
+[node name="Die" type="Node" parent="States" index="2"]
+
+[node name="Gun" type="Sprite" parent="." index="6"]
+
+texture = ExtResource( 7 )
+offset = Vector2( 10, 0 )
+_sections_unfolded = [ "Offset" ]
+
+[node name="Muzzle" type="Position2D" parent="Gun" index="0"]
+
+position = Vector2( 35, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="AimTimer" type="Timer" parent="." index="7"]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = true
+autostart = false
+
+[node name="BulletContainer" type="Node" parent="." index="8"]
+
+[node name="GunTimer" type="Timer" parent="." index="9"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="AimTimer" to="States/Aim" method="_on_AimTimer_timeout"]
+
+[connection signal="timeout" from="GunTimer" to="States/Attack" method="_on_GunTimer_timeout"]
+
+
