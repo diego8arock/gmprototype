@@ -32,5 +32,14 @@ position = Vector2( -0.257019, -10.281 )
 
 shape = SubResource( 1 )
 
+[node name="LifeTime" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = true
+
+[connection signal="timeout" from="LifeTime" to="." method="_on_LifeTime_timeout"]
+
 
 [editable path="HitBox"]
