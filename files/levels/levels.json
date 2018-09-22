@@ -1,0 +1,44 @@
+{
+  "1": {
+    "data": [
+      {
+        "boss": [
+          {
+            "position": {
+              "x": 190,
+              "y": 65
+            },
+            "tier": 1,
+            "attack": "NONE"
+          }
+        ],
+        "minions": "NONE"
+      }
+    ]
+  },
+  "2": {
+    "data": [
+      {
+        "boss": [
+          {
+            "tier": 1,
+            "attack": "NONE"
+          }
+        ],
+        "minions": [
+          {
+            "turret": [
+              {
+                "position": {
+                  "x": 82,
+                  "y": 121
+                },
+                "tier": 1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
