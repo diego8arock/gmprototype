@@ -1,20 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://weapons/base/BaseWeapon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://weapons/bullet/player/charged_player_bullet.gd" type="Script" id=2]
 [ext_resource path="res://assets/weapons/charged_player_bullet.png" type="Texture" id=3]
 
-[sub_resource type="CapsuleShape2D" id=1]
-
-custom_solver_bias = 0.0
-radius = 4.7056
-height = 24.1559
-
-[node name="ChargedPlayerBullet" instance=ExtResource( 1 )]
+[node name="ChargedPlayerBullet" index="0" instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
+damage = 25
 speed = 1000
-damage = 10
 
 [node name="Sprite" parent="." index="0"]
 
@@ -24,15 +18,7 @@ texture = ExtResource( 3 )
 
 visible = false
 
-[node name="HitBox" parent="." index="2"]
-
-position = Vector2( -0.257019, -10.281 )
-
-[node name="CollisionShape2D" parent="HitBox" index="0"]
-
-shape = SubResource( 1 )
-
-[node name="LifeTime" type="Timer" parent="." index="3"]
+[node name="LifeTime" type="Timer" parent="." index="2"]
 
 process_mode = 1
 wait_time = 1.0
@@ -42,4 +28,3 @@ autostart = true
 [connection signal="timeout" from="LifeTime" to="." method="_on_LifeTime_timeout"]
 
 
-[editable path="HitBox"]

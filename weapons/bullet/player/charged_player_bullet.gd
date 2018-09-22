@@ -1,8 +1,7 @@
-extends KinematicBody2D
+extends "res://weapons/damage_source_body.gd"
 
 var vel = Vector2()
 export var speed = 1000
-export var damage = 10
 
 func start_at(bullet_direction, bullet_position):
 	rotation = bullet_direction

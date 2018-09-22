@@ -7,8 +7,8 @@
 [node name="EnemyBullet" instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
-speed = 1000
 damage = 10
+speed = 1000
 
 [node name="Sprite" parent="." index="0"]
 
@@ -21,7 +21,7 @@ _sections_unfolded = [ "Transform" ]
 rotation = 1.5708
 _sections_unfolded = [ "Transform" ]
 
-[node name="LifeTime" type="Timer" parent="." index="3"]
+[node name="LifeTime" type="Timer" parent="." index="2"]
 
 process_mode = 1
 wait_time = 1.0
