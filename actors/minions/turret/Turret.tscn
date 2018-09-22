@@ -22,6 +22,10 @@ scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
+[node name="Health" parent="." index="2"]
+
+max_health = 30
+
 [node name="HitBox" parent="." index="3"]
 
 position = Vector2( 0.35849, 0 )
@@ -64,8 +68,13 @@ wait_time = 1.0
 one_shot = true
 autostart = false
 
+[connection signal="health_changed" from="Health" to="." method="_on_Health_health_changed"]
+
+[connection signal="health_depleted" from="Health" to="." method="_on_Health_health_depleted"]
+
 [connection signal="timeout" from="AimTimer" to="States/Aim" method="_on_AimTimer_timeout"]
 
 [connection signal="timeout" from="GunTimer" to="States/Attack" method="_on_GunTimer_timeout"]
 
 
+[editable path="HitBox"]

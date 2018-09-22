@@ -7,6 +7,8 @@ var bullet_container
 var muzzle
 var energy
 
+signal energy_changed
+
 func enter():
 	gun_timer = owner.get_node("GunTimer")
 	bullet_container = owner.get_node("BulletContainer")
@@ -33,5 +35,5 @@ func _recharge():
 	
 	if owner.charged_shot_energy > GlobalConstant.PLAYER_MIN_CHARGE:
 		owner.charged_shot_energy -= energy.modifier
-		owner.update_energy_bar()
+		emit_signal("energy_changed")
 	

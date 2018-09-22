@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 signal state_changed
 signal ui_energy_updated(value)
+signal ui_life_updated(value)
 
 export (float) var clam_offset = 16
 export (float) var translate_coef = 0.2 
@@ -58,14 +59,11 @@ func _on_animation_finished(anim_name):
 # Public functions
 
 func take_damage_from(attacker):
-	pass
+	$Health.take_damage_from(attacker)
 
 func set_controlable(value):
 	set_process_input(value)
 	set_physics_process(value)
-
-func update_energy_bar():
-	emit_signal("ui_energy_updated", GlobalConstant.PLAYER_MAX_CHARGE - charged_shot_energy)
 
 # Private functions
 
@@ -108,3 +106,11 @@ func _level_up():
 func _on_Health_health_depleted():
 	_change_state("die")
 
+func _on_Health_health_changed(health):
+	emit_signal("ui_life_updated", health)
+
+func _on_Attack_energy_changed():
+	emit_signal("ui_energy_updated", GlobalConstant.PLAYER_MAX_CHARGE - charged_shot_energy)
+
+func _on_ChargeShot_energy_changed():
+	emit_signal("ui_energy_updated", GlobalConstant.PLAYER_MAX_CHARGE - charged_shot_energy)

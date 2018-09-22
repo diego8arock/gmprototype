@@ -33,7 +33,7 @@ func _physics_process(delta):
 	current_state.update(delta)
 
 func take_damage_from(attacker):
-	pass
+	$Health.take_damage_from(attacker)
 	
 func rotate(delta):
 	var target = GlobalVariable.player_global_position
@@ -58,3 +58,9 @@ func _change_state(state_name):
 		
 	emit_signal("state_changed", states_stack)
 	
+
+func _on_Health_health_depleted():
+	queue_free()
+
+func _on_Health_health_changed(health):
+	print("turret health %s" % [health])

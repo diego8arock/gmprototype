@@ -27,7 +27,7 @@ func _shoot():
 	var b = bullet.instance()
 	bullet_container.add_child(b)
 	var gun_rotation = Vector2(1, 0).rotated(gun.global_rotation)
-	b.start_at(gun_rotation.angle(), muzzle.global_position) 
+	b.start_at(gun_rotation, muzzle.global_position) 
 	bullets_fired += 1
 
 func _on_GunTimer_timeout():
