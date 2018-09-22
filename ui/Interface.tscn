@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://ui/interface.gd" type="Script" id=1]
-[ext_resource path="res://ui/bars/energy_bar/EnergyBar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ui/bars/life_bar/LifeBar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ui/bars/energy_bar/EnergyBar.tscn" type="PackedScene" id=3]
 
 [node name="Interface" type="Control"]
 
@@ -40,11 +41,17 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 
-[node name="EnergyBar" parent="Bars" index="0" instance=ExtResource( 2 )]
+[node name="LifeBar" parent="Bars" index="0" instance=ExtResource( 2 )]
+
+[node name="EnergyBar" parent="Bars" index="1" instance=ExtResource( 3 )]
 
 margin_left = 0.0
+margin_top = 57.0
 margin_right = 440.0
+margin_bottom = 110.0
 
 [connection signal="energy_updated" from="." to="Bars/EnergyBar" method="_on_Interface_energy_updated"]
+
+[connection signal="life_updated" from="." to="Bars/LifeBar" method="_on_Interface_life_updated"]
 
 

@@ -7,10 +7,7 @@ path="res://.import/bg.png-96e205e2f629466b1f1789ffd7c4b756.stex"
 [deps]
 
 source_file="res://ui/bars/bg.png"
-source_md5="df50f22ac78c3f6bdc76d80b2ca5bfe8"
-
 dest_files=[ "res://.import/bg.png-96e205e2f629466b1f1789ffd7c4b756.stex" ]
-dest_md5="2042e6830cd8af8291cae84806016916"
 
 [params]
 

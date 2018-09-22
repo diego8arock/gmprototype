@@ -7,10 +7,7 @@ path="res://.import/label_EP.png-619a663eafd74ef463f4ce02fba31a35.stex"
 [deps]
 
 source_file="res://ui/bars/energy_bar/label_EP.png"
-source_md5="eacc7cb570c12e2298dd4de8dce9d417"
-
 dest_files=[ "res://.import/label_EP.png-619a663eafd74ef463f4ce02fba31a35.stex" ]
-dest_md5="2f42f33e3e57d76b2e91e00b37db0de1"
 
 [params]
 
