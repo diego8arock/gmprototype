@@ -18,6 +18,7 @@ config/icon="res://icon.png"
 
 GlobalConstant="*res://utils/autoload/global_constant.gd"
 GlobalVariable="*res://utils/autoload/global_variable.gd"
+LevelLoader="*res://utils/autoload/level_loader.gd"
 
 [display]
 
