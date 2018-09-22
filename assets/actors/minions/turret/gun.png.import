@@ -7,10 +7,7 @@ path="res://.import/gun.png-1191b6664090ce5a047c0c096f523d2b.stex"
 [deps]
 
 source_file="res://assets/actors/minions/turret/gun.png"
-source_md5="18f0fe09309452bd370cf5143484ec1c"
-
 dest_files=[ "res://.import/gun.png-1191b6664090ce5a047c0c096f523d2b.stex" ]
-dest_md5="49fa66a4ac6c326a290ca943083e417c"
 
 [params]
 

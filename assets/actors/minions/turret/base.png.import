@@ -7,10 +7,7 @@ path="res://.import/base.png-be0f9f04f832561ec59249d75c0bc7c8.stex"
 [deps]
 
 source_file="res://assets/actors/minions/turret/base.png"
-source_md5="996bfb5738413867d04674fc912e83df"
-
 dest_files=[ "res://.import/base.png-be0f9f04f832561ec59249d75c0bc7c8.stex" ]
-dest_md5="28eec40e54aa2f047efb61bdca31c10c"
 
 [params]
 
