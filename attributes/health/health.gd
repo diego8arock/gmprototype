@@ -38,6 +38,8 @@ func _change_status(new_status):
 	emit_signal('status_changed', new_status)
 
 func take_damage_from(source):
+	if not source.get("damage"):
+		return
 	if health == 0 or status == GlobalConstant.STATUS_INVINCIBLE:
 		return
 	health -= source.damage
@@ -47,7 +49,7 @@ func take_damage_from(source):
 		return
 	else:
 		emit_signal("health_changed", health)
-	
+
 	if not source.effect:
 		return
 	match source.effect[0]:
